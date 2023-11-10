@@ -74,7 +74,7 @@ export class CartService {
     let totalQuantityValue: number = 0;
 
     for (let cartItem of this.cartItems) {
-      totalPriceValue += cartItem.quantity * cartItem.unitPrice;
+      totalPriceValue += cartItem.quantity * cartItem.unitPrice!;
       totalQuantityValue += cartItem.quantity;
     }
 
@@ -96,7 +96,7 @@ export class CartService {
   // used for debugging only
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
     for (let cartItem of this.cartItems) {
-      const subTotalPrice = cartItem.quantity * cartItem.unitPrice;
+      const subTotalPrice = cartItem.quantity * cartItem.unitPrice!;
       console.log(`name: ${cartItem.name}, quantity= ${cartItem.quantity}, unitPrice=${cartItem.unitPrice}, subTotalPrice: ${subTotalPrice}`)
     }
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity:${totalQuantityValue}`)

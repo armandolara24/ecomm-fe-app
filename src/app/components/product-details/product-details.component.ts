@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product!: Product;
+  product: Product = new Product();
 
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     //console.log(`Adding to cart: ${product.name}, ${product.unitPrice}`)
 
-    const cartItem = new CartItem(this.product);
+    let cartItem = new CartItem(this.product.id, this.product.name, this.product.imageUrl, this.product.unitPrice);
 
     this.cartService.addToCart(cartItem);
   }
